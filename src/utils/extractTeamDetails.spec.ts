@@ -1,6 +1,5 @@
+import extractTeamDetails from './extractTeamDetails';
 import { MatchSummary } from './scoreBoard/types';
-
-const extractTeamDetails = (summary: MatchSummary) => ({});
 
 describe('extractTeamDetails utility function', () => {
   it('extracts team names and team scores given match summary', () => {

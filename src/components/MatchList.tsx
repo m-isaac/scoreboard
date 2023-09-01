@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Input } from './common';
 import { useAppContext } from '../AppContext';
+import extractTeamDetails from '../utils/extractTeamDetails';
 
 const Container = styled.div`
   display: flex;
@@ -77,12 +78,11 @@ const TeamList: React.FC = () => {
   return (
     <Container>
       <Title>Ongoing Matches</Title>
-      {boardSummary.length === 0 && <div className='text-xl p-3'>No matches currently in progress</div>}
+      {boardSummary.length === 0 && (
+        <div className="p-3 text-xl">No matches currently in progress</div>
+      )}
       {boardSummary.map((summary, i) => {
-        const [homeSummary, awaySummary] = summary.split(' - ');
-        const [homeTeam, homeScore] = homeSummary.split(' ');
-        const [awayTeam, awayScore] = awaySummary.split(' ');
-
+        const { homeTeam, homeScore, awayTeam, awayScore } = extractTeamDetails(summary);
         const MatchUpdate = (
           <Row className="bg-slate-500">
             <div className="flex gap-2">
@@ -119,7 +119,7 @@ const TeamList: React.FC = () => {
                 $bgColor="#93c5fd"
                 onClick={() => {
                   setSelectedMatch(i);
-                  setUpdatedScore([Number(homeScore), Number(awayScore)]);
+                  setUpdatedScore([homeScore, awayScore]);
                 }}
               >
                 Update Scores
