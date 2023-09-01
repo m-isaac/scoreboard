@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* for fluid font-size */
+html {
+  font-size: clamp(100%, 1rem + 2vw, 16px) !important;
+}
