@@ -4,5 +4,5 @@
 
 /* for fluid font-size */
 html {
-  font-size: clamp(100%, 1rem + 2vw, 16px) !important;
+  font-size: min(max(6px, 2.85vw), 18px);
 }
