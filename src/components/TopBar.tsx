@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Button, Input } from './common';
 import { useAppContext } from '../AppContext';
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   display: flex;
   padding: 0.4rem;
   gap: 2rem;
