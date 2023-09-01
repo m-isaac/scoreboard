@@ -44,7 +44,7 @@ Error generating stack: `+o.message+`
   padding: 0.3rem;
   border-radius: 0.375rem;
   border: 1px solid #374151;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.5rem;
   font-weight: 500;
   background-color: ${({$bgColor:e})=>e};
@@ -58,7 +58,7 @@ Error generating stack: `+o.message+`
   border-radius: 0.25rem;
   border-width: 1px;
   width: 25%;
-  font-size: 1rem;
+  font-size: 1.16rem;
   line-height: 1.5rem;
 `,fr=class fr{constructor(){At(this,"matches",new Map);At(this,"startNewMatch",(t,n)=>{const r=`${t},${n}`;if(this.matches.has(r))throw new Error("Match already started");return this.matches.set(r,[0,0]),this});At(this,"updateMatch",(t,n)=>{const[r,l]=t,o=`${r},${l}`;return fr.verifyMatchExists(o,this),this.matches.set(o,n),this});At(this,"finishMatch",(t,n)=>{const r=`${t},${n}`;return fr.verifyMatchExists(r,this),this.matches.delete(r),this});At(this,"getSummary",()=>{const t=(r,l)=>r+l;return Array.from(this.matches.entries()).sort(([r,l],[o,i])=>i.reduce(t)-l.reduce(t)||-1).map(([r,l])=>{const[o,i]=r.split(","),[u,s]=l;return`${o} ${u} - ${i} ${s}`})})}};At(fr,"verifyMatchExists",(t,n)=>{if(!n.matches.has(t))throw new Error("Match does not exists")});let Yi=fr;const Rm=new Yi,qf=ne.createContext(null),$m=({children:e})=>{const[t,n]=ne.useState(),[r,l]=ne.useState(!1),o={scoreboard:Rm,boardUpdated:r,error:t,setBoardUpdated:l,setError:n};return O.jsx(qf.Provider,{value:o,children:e})},Yu=()=>ne.useContext(qf),Lm=ft.div`
   display: flex;
