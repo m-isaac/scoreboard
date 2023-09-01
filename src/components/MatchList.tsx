@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   overflow-y: auto;
   position: relative;
-  padding: 1.2rem;
+  padding: 0.8rem;
   padding-top: 0;
   flex-direction: column;
   gap: 1rem;

@@ -8,7 +8,7 @@ import './App.css';
 const AppWrapper = styled.div`
   display: flex;
   position: relative;
-  padding: 1rem;
+  padding: 0.65rem;
   flex-direction: column;
   gap: 1.5rem;
   align-items: center;

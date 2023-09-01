@@ -1,8 +1,9 @@
 .match-summary {
-  padding: 2px 9px;
+  padding: 2px 0.4rem;
   border: 1px solid gray;
   border-radius: 5px;
   color: navy;
-  font-size: 1.2rem;
+  font-size: 1.22rem;
   background-color: azure;
+  font-weight: 500;
 }
