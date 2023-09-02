@@ -104,7 +104,7 @@ Error generating stack: `+o.message+`
   font-size: 1rem;
   line-height: 1.5rem;
   background-color: #0000005e;
-`,Dm=()=>{const{scoreboard:e,setBoardUpdated:t,setError:n}=Yu(),[r,l]=ne.useState(""),[o,i]=ne.useState(""),u=ne.useCallback(c=>{const{name:m,value:h}=c.target;m==="home"&&l(h),m==="away"&&i(h)},[]),s=()=>{try{e.startNewMatch(r,o),t(!0),l(""),i("")}catch(c){c instanceof Error&&n(c.message),setTimeout(()=>n(void 0),1600)}};return O.jsxs(jm,{children:[O.jsx(Ql,{type:"text",name:"home",value:r,onChange:u,placeholder:"Home team"}),O.jsx(Ql,{type:"text",name:"away",value:o,onChange:u,placeholder:"Away team"}),O.jsx(er,{$bgColor:"#6ee7b7",disabled:!(r&&o),onClick:s,children:"Start Match"})]})},Am=ft.div`
+`,Dm=()=>{const{scoreboard:e,setBoardUpdated:t,setError:n}=Yu(),[r,l]=ne.useState(""),[o,i]=ne.useState(""),u=ne.useCallback(c=>{const{name:m,value:h}=c.target;m==="home"&&l(h),m==="away"&&i(h)},[]),s=c=>{c.preventDefault();try{e.startNewMatch(r,o),t(!0),l(""),i("")}catch(m){m instanceof Error&&n(m.message),setTimeout(()=>n(void 0),1600)}};return O.jsxs(jm,{children:[O.jsx(Ql,{type:"text",name:"home",value:r,onChange:u,placeholder:"Home team"}),O.jsx(Ql,{type:"text",name:"away",value:o,onChange:u,placeholder:"Away team"}),O.jsx(er,{$bgColor:"#6ee7b7",disabled:!(r&&o),onClick:s,children:"Start Match"})]})},Am=ft.div`
   color: red;
   z-index: 40;
   background-color: #00000047;
