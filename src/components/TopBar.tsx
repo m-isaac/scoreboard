@@ -26,7 +26,8 @@ const TopBar: React.FC = () => {
     if (name === 'away') setAwayTeamName(value);
   }, []);
 
-  const handleStartMatch = () => {
+  const handleStartMatch: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.preventDefault();
     try {
       scoreboard.startNewMatch(homeTeamName, awayTeamName);
       setBoardUpdated(true);
