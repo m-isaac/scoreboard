@@ -1,7 +1,8 @@
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Input } from './common';
 import { useAppContext } from '../AppContext';
+
 
 const Wrapper = styled.form`
   display: flex;
@@ -15,7 +16,7 @@ const Wrapper = styled.form`
   background-color: #0000005e;
 `;
 
-const TopBar: React.FC = () => {
+const TopBar: React.FC = React.memo(() => {
   const { startNewMatch } = useAppContext();
   const [homeTeamName, setHomeTeamName] = useState('');
   const [awayTeamName, setAwayTeamName] = useState('');
@@ -58,6 +59,6 @@ const TopBar: React.FC = () => {
       </Button>
     </Wrapper>
   );
-};
+});
 
 export default TopBar;
