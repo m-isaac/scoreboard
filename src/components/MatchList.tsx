@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Input } from './common';
 import { useAppContext } from '../AppContext';
@@ -45,8 +45,7 @@ const Title = styled.div`
 `;
 
 const TeamList: React.FC = () => {
-  const { scoreboard, boardUpdated, setBoardUpdated } = useAppContext();
-  const [boardSummary, setBoardSummary] = useState(scoreboard.getSummary);
+  const { updateMatch, finishMatch, boardSummary } = useAppContext();
   const [selectedMatch, setSelectedMatch] = useState<number>();
   const [updatedScore, setUpdatedScore] = useState<[number, number]>();
 
@@ -61,19 +60,11 @@ const TeamList: React.FC = () => {
   );
 
   const handleSave = (teams: [string, string]) => {
-    scoreboard.updateMatch(teams, updatedScore!);
+    updateMatch(teams, updatedScore!);
     setSelectedMatch(undefined);
-    setBoardUpdated(true);
   };
 
   const handleCancel = useCallback(() => setSelectedMatch(undefined), []);
-
-  useEffect(() => {
-    if (boardUpdated) {
-      setBoardSummary(scoreboard.getSummary());
-      setBoardUpdated(false);
-    }
-  }, [scoreboard, boardUpdated, setBoardUpdated]);
 
   return (
     <Container>
@@ -127,8 +118,7 @@ const TeamList: React.FC = () => {
               <Button
                 $bgColor="#fca5a5"
                 onClick={() => {
-                  scoreboard.finishMatch(homeTeam, awayTeam);
-                  setBoardUpdated(true);
+                  finishMatch(homeTeam, awayTeam);
                 }}
               >
                 Finish Match
