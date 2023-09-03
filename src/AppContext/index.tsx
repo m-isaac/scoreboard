@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useCallback,
+  useMemo,
 } from 'react';
 import ScoreBoard from '../utils/scoreBoard';
 import AppContext from './types';
@@ -55,13 +56,16 @@ const AppContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     }
   }, []);
 
-  const contextValue: AppContext = {
-    boardSummary,
-    error,
-    startNewMatch,
-    finishMatch,
-    updateMatch,
-  };
+  const contextValue: AppContext = useMemo(
+    () => ({
+      boardSummary,
+      error,
+      startNewMatch,
+      finishMatch,
+      updateMatch,
+    }),
+    [boardSummary, error, finishMatch, startNewMatch, updateMatch],
+  );
   return <appContext.Provider value={contextValue}>{children}</appContext.Provider>;
 };
 
