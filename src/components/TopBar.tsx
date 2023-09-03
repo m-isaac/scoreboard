@@ -16,7 +16,7 @@ const Wrapper = styled.form`
 `;
 
 const TopBar: React.FC = () => {
-  const { scoreboard, setBoardUpdated, setError } = useAppContext();
+  const { startNewMatch } = useAppContext();
   const [homeTeamName, setHomeTeamName] = useState('');
   const [awayTeamName, setAwayTeamName] = useState('');
 
@@ -28,15 +28,9 @@ const TopBar: React.FC = () => {
 
   const handleStartMatch: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     event.preventDefault();
-    try {
-      scoreboard.startNewMatch(homeTeamName, awayTeamName);
-      setBoardUpdated(true);
-      setHomeTeamName('');
-      setAwayTeamName('');
-    } catch (e) {
-      if (e instanceof Error) setError(e.message);
-      setTimeout(() => setError(undefined), 1600);
-    }
+    startNewMatch(homeTeamName, awayTeamName);
+    setHomeTeamName('');
+    setAwayTeamName('');
   };
 
   return (
