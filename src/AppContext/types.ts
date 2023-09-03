@@ -1,11 +1,11 @@
-import ScoreBoard from '../utils/scoreBoard';
+import { MatchSummary } from '../utils/scoreBoard/types';
 
 type AppContext = {
-  scoreboard: ScoreBoard;
-  boardUpdated: boolean;
+  boardSummary: MatchSummary[];
   error: string | undefined;
-  setBoardUpdated: (value: boolean) => void;
-  setError: (error: string | undefined) => void;
+  startNewMatch: (homeTeam: string, awayTeam: string) => void;
+  finishMatch: (homeTeam: string, awayTeam: string) => void;
+  updateMatch: (teams: [string, string], sores: [number, number]) => void;
 };
 
 export default AppContext;
