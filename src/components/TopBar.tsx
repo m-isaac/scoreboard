@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Input } from './common';
 import { useAppContext } from '../AppContext';
-
 
 const Wrapper = styled.form`
   display: flex;
@@ -20,6 +19,7 @@ const TopBar: React.FC = React.memo(() => {
   const { startNewMatch } = useAppContext();
   const [homeTeamName, setHomeTeamName] = useState('');
   const [awayTeamName, setAwayTeamName] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleTeamNameChange: React.ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
     const { name, value } = e.target;
@@ -32,6 +32,7 @@ const TopBar: React.FC = React.memo(() => {
     startNewMatch(homeTeamName, awayTeamName);
     setHomeTeamName('');
     setAwayTeamName('');
+    inputRef?.current?.focus();
   };
 
   return (
@@ -42,6 +43,8 @@ const TopBar: React.FC = React.memo(() => {
         value={homeTeamName}
         onChange={handleTeamNameChange}
         placeholder="Home team"
+        autoFocus
+        ref={inputRef}
       />
       <Input
         type="text"
